@@ -1,0 +1,8 @@
+@import "../../scss/styles.scss";
+
+.hn-posts {
+    display: grid;
+    grid-template-columns: repeat(3,33.33%);
+    // grid-template-rows: repeat(3,1fr);
+    grid-gap:3rem;
+}

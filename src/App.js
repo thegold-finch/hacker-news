@@ -1,43 +1,33 @@
 import React from "react";
-import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import TopStories from "./components/TopStories";
-import NewStories from "./components/NewStories";
-import Nav from "./components/Nav";
-import User from "./components/User";
-import Post from "./components/Post";
-import { ThemeProvider } from "./contexts/theme";
+import Nav from "./components/nav/Nav";
+import Loader from "./components/loader/Loader";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      theme: "light",
-      toggleTheme: () => {
-        this.setState(({ theme }) => ({
-          theme: theme === "light" ? "dark" : "light"
-        }));
-      }
-    };
-  }
+const Stories = React.lazy(() => import("./components/stories/Stories"));
+const Post = React.lazy(() => import("./components/post/Post"));
+const User = React.lazy(() => import("./components/user/User"));
 
-  render() {
-    return (
-      <Router>
-        <ThemeProvider value={this.state}>
-          <div className={`App ${this.state.theme}`}>
-            <div className="container">
-              <Nav />
-              <Route exact path="/" component={TopStories} />
-              <Route exact path="/new" component={NewStories} />
-              <Route exact path="/user" component={User} />
-              <Route exact path="/post" component={Post} />
-            </div>
-          </div>
-        </ThemeProvider>
-      </Router>
-    );
-  }
+function App() {
+  return (
+    <Router>
+      <div className="hn">
+        <Nav />
+        <div className="hn__container">
+          <React.Suspense fallback={<Loader />}>
+            <Switch>
+              <Route exact path="/" render={() => <Stories type="best" />} />
+              <Route path="/ask" render={() => <Stories type="ask" />} />
+              <Route path="/show" render={() => <Stories type="show" />} />
+              <Route path="/job" render={() => <Stories type="job" />} />
+              <Route path="/post" component={Post} />
+              <Route path="/user" component={User} />
+              <Route render={() => <h1>404</h1>} />
+            </Switch>
+          </React.Suspense>
+        </div>
+      </div>
+    </Router>
+  );
 }
 
 export default App;

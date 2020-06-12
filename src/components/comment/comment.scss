@@ -1,0 +1,19 @@
+@import "../../scss/styles.scss";
+
+.hn-comments {
+    &__comment {
+        background-color: $color-2;
+        padding: 3rem;
+        border-radius: .6rem;
+        &:not(:last-child) {
+            margin-bottom: 3rem;
+        }
+    }
+
+    &__text {
+        margin-top: 1rem;
+        font-family: $font-family-2;
+        font-size: 1.6rem;
+        color: $color-black;
+    }
+}
