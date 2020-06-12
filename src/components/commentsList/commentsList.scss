@@ -1,0 +1,11 @@
+@import "../../scss/styles.scss";
+
+.hn-comments {
+    margin-top: 5rem;
+    &__title {
+        font-family: $font-family-1;
+        font-size: 2rem;
+        color: $color-black;
+        margin-bottom: 2rem;
+    }
+}

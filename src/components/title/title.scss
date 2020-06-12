@@ -1,0 +1,34 @@
+@import "../../scss/styles.scss";
+
+.hn-posts {
+
+    &__wrapper {
+        margin-bottom: 1.5rem;
+    }
+
+    &__title {
+        &:link,
+        &:visited {
+            font-size: 1.6rem;
+            color: $color-black;
+            font-family: $font-family-1;
+            text-decoration: none;
+            display: block;
+        }
+    }
+
+    &__urlsite {
+        display: block;
+        font-size: 1.2rem;
+        color: $color-3;
+        font-family: $font-family-2;
+    }
+
+    &__big-title &__title {
+        &:link,
+        &:visited {
+            font-size: 3rem;
+            color: $color-black;
+        }
+    }
+}

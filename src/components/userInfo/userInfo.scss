@@ -1,0 +1,31 @@
+@import "../../scss/styles.scss";
+
+.hn-user {
+    margin-bottom: 5rem;
+    &__info {
+        font-size: 1.8rem;
+        font-family: $font-family-2;
+        color: $color-3;
+        display: flex;
+        align-items: center;
+
+        &:not(:last-child) {
+            margin-bottom: .5rem;
+        }
+
+        &--id {
+            font-size: 3rem;
+            font-family: $font-family-1;
+            margin-bottom: 1.5rem !important;
+            color: $color-black;
+        }
+    }
+
+    &__icon {
+        color: $color-3;
+        font-size: 1.8rem;
+        margin-right: 1rem;
+    }
+
+
+}

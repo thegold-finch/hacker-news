@@ -1,0 +1,10 @@
+@import "../../scss/styles.scss";
+
+.hn-posts {
+    &__post {
+        background-color: $color-2;
+        padding: 3rem;
+        border-radius: .6rem;
+    }
+
+}
