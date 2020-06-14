@@ -1,13 +1,15 @@
 import React from "react";
 import { FaStar, FaClock,FaAddressCard } from "react-icons/fa";
 import './userInfo.scss';
+import ThemeContext from "../../contexts/theme";
 
 function UserInfo({ user }) {
+  const theme = React.useContext(ThemeContext);
   const { about, created, id, karma } = user;
   return (
     <div className="hn-user">
       {id && (
-        <h2 className="hn-user__info hn-user__info--id ">
+        <h2 className={`hn-user__info hn-user__info--id hn-user__info--id--${theme}`}>
           {id}
         </h2>
       )}

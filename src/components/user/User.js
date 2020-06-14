@@ -5,6 +5,7 @@ import Loader from "../loader/Loader";
 import PostList from "../postList/PostList";
 import UserInfo from "../userInfo/UserInfo";
 import './user.scss';
+import ThemeContext from "../../contexts/theme";
 
 function userReducer(state, action) {
   if (action.type === "fetch") {
@@ -38,6 +39,7 @@ function userReducer(state, action) {
   }
 }
 function User({ location }) {
+  const theme = React.useContext(ThemeContext);
   const { id } = queryString.parse(location.search);
   const [state, dispatch] = React.useReducer(userReducer, {
     user: null,
@@ -75,7 +77,7 @@ function User({ location }) {
         loadingUser === false && <Loader text="Fetching User's Posts" />
       ) : (
         <React.Fragment>
-          <h2 className="hn-user__title">Posts :</h2>
+          <h2 className={`hn-user__title hn-user__title--${theme}`}>Posts :</h2>
           <div className="hn-posts">
             <PostList stories={posts} />
           </div>

@@ -6,7 +6,7 @@ import Title from "../title/Title";
 import PostInfo from "../postInfo/PostInfo";
 import CommentsList from "../commentsList/CommentsList";
 import { getUrlSite } from "../../utils/helpers";
-import "./post.scss";
+import ThemeContext from "../../contexts/theme";
 
 function postReducer(state, action) {
   if (action.type === "fetch") {
@@ -40,6 +40,7 @@ function postReducer(state, action) {
   }
 }
 function Post({ location }) {
+  const theme = React.useContext(ThemeContext);
   const { id } = queryString.parse(location.search);
   const [state, dispatch] = React.useReducer(postReducer, {
     post: null,
@@ -66,15 +67,13 @@ function Post({ location }) {
     return <p>{error}</p>;
   }
 
-  console.log("post", post);
-  console.log("comments", comments);
   return (
     <React.Fragment>
       {loadingPost === true ? (
         <Loader text="Fetching Post" />
       ) : (
         <React.Fragment>
-          <div className="hn-posts__big-title">
+          <div className={`hn-posts__big-title hn-posts__big-title--${theme}`}>
             <Title
               title={post.title}
               url={post.url}

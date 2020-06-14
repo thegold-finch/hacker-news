@@ -28,7 +28,20 @@
         &:link,
         &:visited {
             font-size: 3rem;
+        }
+    }
+
+    &__big-title--light &__title {
+        &:link,
+        &:visited {
             color: $color-black;
+        }
+    }
+
+    &__big-title--dark &__title {
+        &:link,
+        &:visited {
+            color: $color-5;
         }
     }
 }

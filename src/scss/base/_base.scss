@@ -64,16 +64,40 @@ body {
   font-family: $font-family-1;
 }
 
-.hn {
+html,
+body,
+#root {
   width: 100%;
   height: 100%;
+}
+
+.hn {
+  width: 100%;
+  
+  &--light {
+    background-color: $color-white;
+  }
+
+  &--dark {
+    background-color: $color-4;
+    min-height: 100%;
+  }
 
   &__container {
     max-width: 1200px;
     width: 1200px;
     margin: 0 auto;
     padding: 5rem;
-    background-color: $color-white;
+    box-sizing: border-box;
+
+    @include respond(d-m) {
+      width: 100%;
+    }
+
+    @include respond(t-m) {
+      padding: 3rem 1rem;
+    }
+    
   }
 
 }

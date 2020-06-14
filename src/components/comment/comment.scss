@@ -8,6 +8,10 @@
         &:not(:last-child) {
             margin-bottom: 3rem;
         }
+
+        @include respond(t-m) {
+            padding: 2rem;
+        }
     }
 
     &__text {
