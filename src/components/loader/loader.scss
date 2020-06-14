@@ -8,13 +8,28 @@
     align-items: center;
 
     font-size: 3rem;
-    color: $color-black;
+
+
+    &--light {
+        color: $color-black;
+    }
+
+    &--dark {
+        color: $color-5;
+    }
 
     &__icon {
         font-size: 5rem;
         transform: rotate(0);
         animation: rotateAnimation .8s linear infinite;
-        color: $color-1;
         margin-left: 2rem;
+
+        &--light {
+            color: $color-1;
+        }
+    
+        &--dark {
+            color: $color-3;
+        }
     }
 }

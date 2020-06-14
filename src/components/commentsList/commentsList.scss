@@ -5,7 +5,14 @@
     &__title {
         font-family: $font-family-1;
         font-size: 2rem;
-        color: $color-black;
         margin-bottom: 2rem;
+
+        &--light {
+            color: $color-black;
+        }
+
+        &--dark {
+            color: $color-5;
+        }
     }
 }
